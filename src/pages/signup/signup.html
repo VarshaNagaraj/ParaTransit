@@ -1,0 +1,52 @@
+  <ion-content padding>
+    <ion-list>
+
+        <ion-item>
+            <ion-label floating>Username</ion-label>
+            <ion-input type="text" pattern="[A-Za-z]{20}" [(ngModel)]="users.username"></ion-input>
+          </ion-item>
+        
+          <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input type="password" [(ngModel)]="users.password" ></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label floating>Email ID</ion-label>
+              <ion-input type="email" id="email" [(ngModel)]="users.email"></ion-input>
+            </ion-item>
+      
+        <ion-item>
+            <ion-label floating>Identification Number</ion-label>
+            <ion-input type="text"  [(ngModel)]="users.identitynum"></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label floating>Phone Number</ion-label>
+              <ion-input type="tel" required minlength="10" maxlength="10" pattern="[7|8|9][0-9]{9}"
+              [(ngModel)]="users.contact"></ion-input>
+            </ion-item>
+
+      </ion-list>
+   
+      
+
+      <ion-list>
+          <ion-item>
+            <ion-label>User Profile</ion-label>
+            <ion-select  [(ngModel)]="users.userProfile" multiple="true" cancelText="Cancel" okText="OK!">
+              <ion-option value="driver"  >Driver</ion-option>
+              <ion-option value="rider">Rider</ion-option>
+            </ion-select>
+          </ion-item>
+      </ion-list>
+      <div  style="color: #3D628F; text-align:center">
+          <button ion-button block (click)="signUp()" [disabled]='users.username=="" ||users.password==""||users.identitynum==""||users.email==""||users.contact.length < 10|| users.userProfile==""'>Sign Up </button>      
+      </div>
+      <p style="text-align:center">OR</p>
+<div>
+  <p style="text-align :center;color: #3D628F">Already have an account ? <u (click)="login()">  LOG IN</u> </p>
+</div>
+</ion-content>
+
+

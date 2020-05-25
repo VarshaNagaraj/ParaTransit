@@ -1,1 +1,30 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="content">
+  <ion-header>
+
+<div style="align-content: center;">
+    <ion-item menuClose style="background-color:#54a1ff">
+        <ion-avatar >
+              <img src="assets/imgs/user.png" style="height:50px;width:50px;align:center;"> 
+          </ion-avatar>
+          <h2 style="font-size:20px;float:left"> {{user_name}} </h2>
+
+      </ion-item>
+</div>
+   
+
+  </ion-header>
+   <ion-content>
+     <ion-list>
+       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+          <!-- <ion-icon ios="ios-person" md="md-person"> {{p.title}}</ion-icon> -->
+         <ion-label class="label image">
+            <span><img  src="{{p.imageUrl}}"  style="height: 15%;width: 12%;padding-right: 5%;">{{p.title}}</span>
+        </ion-label>
+       </button>
+     </ion-list>
+   </ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeackEnabled="false">
+
+</ion-nav>

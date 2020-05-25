@@ -1,0 +1,47 @@
+
+<ion-header>
+    <ion-navbar color="mobijini">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+
+        <ion-title> Your Ride</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-card *ngIf="result_Value.RIDER_NAME"> 
+        <ion-card-content>
+          <ion-card-title>
+              <ion-label  style="font-size:20px;">{{result_Value.RIDER_NAME}} <p style="float:right;color:grey">{{result_Value.RIDE_TIME}}</p> </ion-label>
+
+            </ion-card-title>
+            <ion-list text-wrap >
+                <ion-item >
+                 <br>
+                  <ion-label>{{result_Value.RIDER_ADDRESS}} 
+                      <p style="text-color:black;font-size:10px;">.</p>
+                      <p style="text-color:black;font-size:10px;">.</p>
+                    <p style="color:black;"> Wichita State University</p>
+                    <div *ngIf="driver_lat && driver_long">
+                        <a href="https://www.google.com/maps/dir/?api=1&origin={{result_Value.RIDER_LATITUDE}}N,{{result_Value.RIDER_LONGITUDE}}W&destination={{driver_lat}}N,{{driver_long}}W"> Track Your Ride</a>
+                    </div>
+                  </ion-label> 
+                </ion-item>
+              </ion-list>            
+        </ion-card-content>
+      </ion-card>
+
+      <ion-grid style="height: 90%">
+          <ion-row justify-content-center align-items-center style="height: 90%">
+      <ion-card *ngIf="!result_Value.RIDER_NAME">
+        <ion-card-content>
+          <ion-card-title style="text-align: center;font-size:20px;">
+            No Rides
+          </ion-card-title>
+        </ion-card-content>
+      </ion-card>
+
+      </ion-row>
+      </ion-grid>
+</ion-content>

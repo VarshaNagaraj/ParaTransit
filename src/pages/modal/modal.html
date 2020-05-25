@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar color="mobijini">
+      <ion-toolbar>
+          <ion-title>
+           RIDE {{rideList[0].RIDE_ID}}
+          </ion-title>
+          <ion-buttons start>
+            <button (click)="dismiss()">
+              <span primary showWhen="ios">Cancel</span>
+              <ion-icon name="md-close" showWhen="android,windows" style="color:#4285F4"></ion-icon>
+            </button>
+          </ion-buttons>
+        </ion-toolbar>
+  </ion-navbar>
+    
+  </ion-header>
+  <ion-content padding>
+    <h2> Rider Details<p style="float:right;font-size:15px;margin-top:5px;">{{rideList[0].RIDE_TIME}}</p> </h2> 
+    <ion-list>
+      <ion-item>
+        <ion-label>Name</ion-label>
+        <ion-input  [readonly]="isReadonly"type="text" value={{rideList[0].RIDER_NAME}}></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Contact Number</ion-label>
+        <ion-input [readonly]="isReadonly" type="number" value={{rideList[0].RIDER_CONTACT}}></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Address</ion-label>
+
+        <ion-input [readonly]="isReadonly" type="text" value={{rideList[0].RIDER_ADDRESS}}></ion-input>
+       </ion-item>
+
+    </ion-list>
+
+    <div  style="color: #3D628F; text-align:center">
+        <button ion-button full (click) = "sharelocation()"> Share Location </button>      
+    </div>
+  </ion-content> 

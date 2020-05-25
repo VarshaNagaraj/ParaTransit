@@ -1,5 +1,7 @@
 {
   "name": "Testlocater",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }

@@ -1,0 +1,21 @@
+<ion-content padding>
+  <ion-list>
+
+      <ion-item>
+          <ion-label floating>Username</ion-label>
+          <ion-input type="text" pattern="[A-Za-z]{20}" [(ngModel)]="users.username"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input type="password" pattern="[A-Za-z]{20}" [(ngModel)]="users.password"></ion-input>
+          </ion-item>
+  </ion-list>
+
+  <div  style="color: #3D628F; text-align:center">
+      <button ion-button block (click)="login()" [disabled]='users.username==""||users.password==""'>LOGIN </button>      
+  </div>
+  <div>
+      <p style="text-align :center;color: #3D628F">Don't have an account? <u (click)="signup()"> SIGN UP</u> </p>
+    </div>
+</ion-content>
